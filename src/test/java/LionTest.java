@@ -1,6 +1,5 @@
 import com.example.Feline;
 import com.example.Lion;
-import com.example.Predator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -74,30 +73,4 @@ class LionTest {
         assertEquals(expectedFood, actualFood);
         verify(feline, times(1)).eatMeat();
     }
-
-    @Test
-    @DisplayName("Проверка метода eatMeat")
-    void testEatMeat() throws Exception {
-        List<String> expectedFood = List.of("Мясо", "Рыба");
-        when(feline.eatMeat()).thenReturn(expectedFood);
-
-        Lion lion = new Lion("Самец", feline);
-        List<String> actualFood = lion.eatMeat();
-
-        assertEquals(expectedFood, actualFood);
-        verify(feline, times(1)).eatMeat();
-    }
-
-
-    @Test
-    @DisplayName("Проверка getKittens когда predator не Feline")
-    void testGetKittensWhenPredatorIsNotFeline() throws Exception {
-        Predator otherPredator = mock(Predator.class);
-
-        Lion lion = new Lion("Самец", otherPredator);
-        int kittens = lion.getKittens();
-
-        assertEquals(0, kittens);
-    }
-
 }

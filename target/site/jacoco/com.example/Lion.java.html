@@ -2,13 +2,13 @@
 
 import java.util.List;
 
-public class Lion implements Predator {
+public class Lion {
 
     private final boolean hasMane;
-    private final Predator predator;
+    private final Feline feline;
 
-<span class="fc" id="L10">    public Lion(String sex, Predator predator) throws Exception {</span>
-<span class="fc" id="L11">        this.predator = predator;</span>
+<span class="fc" id="L10">    public Lion(String sex, Feline feline) throws Exception {</span>
+<span class="fc" id="L11">        this.feline = feline;</span>
 <span class="fc bfc" id="L12" title="All 2 branches covered.">        if (&quot;Самец&quot;.equals(sex)) {</span>
 <span class="fc" id="L13">            this.hasMane = true;</span>
 <span class="fc bfc" id="L14" title="All 2 branches covered.">        } else if (&quot;Самка&quot;.equals(sex)) {</span>
@@ -18,24 +18,16 @@ public class Lion implements Predator {
         }
 <span class="fc" id="L19">    }</span>
 
-    @Override
-    public List&lt;String&gt; eatMeat() throws Exception {
-<span class="fc" id="L23">        return predator.eatMeat();</span>
-    }
-
-    public List&lt;String&gt; getFood() throws Exception {
-<span class="fc" id="L27">        return eatMeat();</span>
-    }
-
     public int getKittens() {
-<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (predator instanceof Feline) {</span>
-<span class="fc" id="L32">            return ((Feline) predator).getKittens();</span>
-        }
-<span class="fc" id="L34">        return 0;</span>
+<span class="fc" id="L22">        return feline.getKittens();</span>
     }
 
     public boolean doesHaveMane() {
-<span class="fc" id="L38">        return hasMane;</span>
+<span class="fc" id="L26">        return hasMane;</span>
+    }
+
+    public List&lt;String&gt; getFood() throws Exception {
+<span class="fc" id="L30">        return feline.eatMeat();</span>
     }
 }
 
